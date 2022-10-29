@@ -10,6 +10,8 @@
   --icon-color: #afb1b8;
   --font-family: 'Roboto', sans-serif;
   --other-font-family: 'Raleway';
+  --transition-duration: 250ms;
+  --transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -79,7 +81,7 @@ img {
   padding-bottom: 32px;
   color: var(--main-title-text-color);
   text-decoration: none;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--transition-duration) var(--transition-timing-function);
 }
 .nav-link:hover,
 .nav-link:focus {
@@ -114,7 +116,7 @@ img {
   letter-spacing: 0.02em;
   text-decoration: none;
   color: var(--primary-text-color);
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--transition-duration) var(--transition-timing-function);
 }
 .mail-icon {
   margin-right: 10px;
@@ -176,7 +178,7 @@ h1.title {
   border-radius: 4px;
   border: 0px;
   cursor: pointer;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--transition-duration) var(--transition-timing-function);
 }
 .order-service:hover,
 .order-service:focus {
@@ -307,7 +309,7 @@ h1.title {
   height: 44px;
   color: var(--icon-color);
   border-radius: 50%;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--transition-duration) var(--transition-timing-function);
 }
 .team-social-icon {
   fill: currentColor;
@@ -340,7 +342,7 @@ h1.title {
   border: 1px solid var(--icon-color);
   border-radius: 4px;
   color: var(--icon-color);
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--transition-duration) var(--transition-timing-function);
 }
 .clients-icon {
   fill: currentColor;
@@ -390,7 +392,7 @@ h1.title {
   letter-spacing: 0.03em;
   text-decoration: none;
   color: var(--other-title-color);
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--transition-duration) var(--transition-timing-function);
 }
 .footer .link-address:focus {
   color: var(--accent-color);
@@ -437,7 +439,7 @@ h1.title {
   color: var(--other-title-color);
   background: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--transition-duration) var(--transition-timing-function);
 }
 .footer-social-icon {
   fill: currentColor;
@@ -467,6 +469,7 @@ h1.title {
   min-width: 358px;
   height: 50px;
   letter-spacing: 0.03em;
+  padding-left: 16px;
   color: var(--other-title-color);
   background-color: inherit;
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -475,6 +478,7 @@ h1.title {
   outline: none;
 }
 .footer-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -523,7 +527,7 @@ h1.title {
   border-radius: 4px;
   border: none;
   cursor: pointer;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--transition-duration) var(--transition-timing-function);
 }
 .filter-button:hover {
   color: var(--other-title-color);
@@ -565,7 +569,7 @@ h1.title {
   height: 100%;
   background-color: rgba(33, 150, 243, 0.9);
   transform: translateY(100%);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform var(--transition-duration) var(--transition-timing-function);
 }
 .overlay-text {
   max-width: 322px;
@@ -603,8 +607,8 @@ h1.title {
   height: 100%;
   opacity: 1;
   background-color: rgba(0, 0, 0, 0.2);
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity var(--transition-duration) var(--transition-timing-function),
+    visibility var(--transition-duration) var(--transition-timing-function);
 }
 .backdrop.is-hidden {
   visibility: hidden;
@@ -624,7 +628,7 @@ h1.title {
   height: 581px;
   border-radius: 4px;
   background-color: var(--other-title-color);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform var(--transition-duration) var(--transition-timing-function);
 }
 .close-btn {
   position: absolute;
@@ -639,6 +643,12 @@ h1.title {
   background-color: var(--other-title-color);
   border: 1px solid rgba(0, 0, 0, 0.1);
   cursor: pointer;
+}
+.close-icon {
+  transition: var(--transition-duration) var(--transition-timing-function);
+}
+.close-btn:hover .close-icon {
+  fill: var(--accent-color);
 }
 
 /*------------MODAL FORM------------*/
@@ -675,15 +685,24 @@ h1.title {
   width: 100%;
   min-height: 40px;
   padding-left: 32px;
+  fill: var(--main-title-text-color);
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
+  cursor: pointer;
   outline: none;
+  transition: var(--transition-duration) var(--transition-timing-function);
 }
 .modal-input-icon {
   position: absolute;
   top: 50%;
   left: 12px;
   transform: translatey(-50%);
+}
+.modal-form-input:focus {
+  border-color: var(--accent-color);
+}
+.modal-form-input:focus + .modal-input-icon {
+  fill: var(--accent-color);
 }
 .modal-textarea {
   width: 100%;
@@ -697,28 +716,43 @@ h1.title {
   border-radius: 4px;
   resize: none;
   outline: none;
+  transition: var(--transition-duration) var(--transition-timing-function);
 }
 .modal-textarea::placeholder {
   color: rgba(117, 117, 117, 0.5);
 }
+.modal-textarea:focus {
+  border-color: var(--accent-color);
+}
+.modal-textarea:focus::-webkit-input-placeholder {
+  color: var(--accent-color);
+}
 
-.checkbox-wrapper {
+/*------------CHECKBOX----------*/
+
+.checkbox-container {
   position: relative;
-  display: flex;
-  align-items: center;
-  gap: 8.38px;
   margin-bottom: 30px;
 }
-.visually-hidden {
-  visibility: hidden;
+.modal-checkbox {
+  appearance: none;
 }
 .checkbox-icon {
   position: absolute;
   top: 50%;
-  left: 0;
+  left: 8px;
   transform: translateY(-50%);
+  z-index: -1;
+  fill: var(--other-title-color);
+  fill-opacity: 0;
+  border: 2px solid var(--main-title-text-color);
+  border-radius: 2px;
+  transition: var(--transition-duration) var(--transition-timing-function);
 }
+
 .checkbox-label {
+  display: inline-block;
+  padding-left: 37px;
   font-size: 14px;
   line-height: 1.71;
   letter-spacing: 0.03em;
@@ -727,6 +761,12 @@ h1.title {
 .checkbox-link {
   color: var(--accent-color);
   text-decoration-skip-ink: none;
+}
+.modal-checkbox:checked + .checkbox-icon {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  border: none;
+  fill-opacity: 1;
 }
 .modal-form-button {
   display: flex;
